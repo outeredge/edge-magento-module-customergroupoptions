@@ -1,0 +1,21 @@
+{
+    "name": "outeredge/edge-magento-module-customergroupoptions",
+    "type": "magento-module",
+    "description": "Customer Group Options Magento Module by outer/edge",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "outer/edge",
+            "email": "support@outeredgeuk.com"
+        }
+    ],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:outeredge/edge-magento-module-customergroupoptions.git"
+        }
+    ]
+}
