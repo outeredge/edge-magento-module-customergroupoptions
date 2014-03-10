@@ -41,6 +41,6 @@ class Edge_CustomerGroupOptions_Block_Adminhtml_Customer_Group_Edit_Form extends
 
 	private function _getSelectedPaymentMethods()
     {
-        return Mage::getSingleton('customergroupoptions/customerGroupOptions')->getCustomerGroupPaymentMethods(Mage::registry('current_group')->getId());
+        var_dump(Mage::getSingleton('customergroupoptions/customerGroupOptions')->getCustomerGroupPaymentMethods(Mage::registry('current_group')->getId()));
     }
 }

@@ -31,9 +31,9 @@
             <customergroupoptions_resource>
                 <class>Edge_CustomerGroupOptions_Model_Resource</class>
                 <entities>
-                    <customergrouppaymentmethod>
+                    <customergroupoptions>
                         <table>customer_group_options</table>
-                    </customergrouppaymentmethod>
+                    </customergroupoptions>
                 </entities>
             </customergroupoptions_resource>
         </models>

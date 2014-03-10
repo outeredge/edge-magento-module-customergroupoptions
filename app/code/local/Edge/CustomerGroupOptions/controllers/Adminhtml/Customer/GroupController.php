@@ -49,7 +49,7 @@ class Edge_CustomerGroupOptions_Adminhtml_Customer_GroupController extends Mage_
 
         $methods= json_encode($methods, JSON_FORCE_OBJECT);
         try{
-            $groupMethodModel = Mage::getModel('customergroupoptions/customergroupoptions')->load($id, 'customer_group_id');
+            $groupMethodModel = Mage::getModel('customergroupoptions/customerGroupOptions')->load($id, 'customer_group_id');
             $groupMethodModel->setCustomerGroupId($id)
                              ->setPaymentMethods($methods)
                              ->save();
