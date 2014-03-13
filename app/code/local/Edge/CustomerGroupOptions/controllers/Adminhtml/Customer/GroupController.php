@@ -30,6 +30,7 @@ class Edge_CustomerGroupOptions_Adminhtml_Customer_GroupController extends Mage_
                 $customerGroup->setTaxClassId($taxClass)->save();
 
                 $this->savePaymentMethods($id, $data['payment_methods']);
+                $this->saveShippingMethods($id, $data['shipping_methods']);
 
                 Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('customer')->__('The customer group has been saved.'));
                 $this->getResponse()->setRedirect($this->getUrl('*/customer_group'));
@@ -45,6 +46,12 @@ class Edge_CustomerGroupOptions_Adminhtml_Customer_GroupController extends Mage_
         }
     }
 
+    /**
+     * Set payment methods for customer group
+     *
+     * @param integer $id Customer Group ID
+     * @param array $methods Payment Methods
+     */
     private function savePaymentMethods($id, $methods) {
 
         $methods= json_encode($methods, JSON_FORCE_OBJECT);
@@ -52,6 +59,28 @@ class Edge_CustomerGroupOptions_Adminhtml_Customer_GroupController extends Mage_
             $groupMethodModel = Mage::getModel('customergroupoptions/customerGroupOptions')->load($id, 'customer_group_id');
             $groupMethodModel->setCustomerGroupId($id)
                              ->setPaymentMethods($methods)
+                             ->save();
+            return;
+        }
+        catch (Exception $e) {
+            Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+            $this->getResponse()->setRedirect($this->getUrl('*/customer_group/edit', array('id' => $id)));
+            return;
+        }
+    }
+
+    /**
+     * Set shipping methods for customer group
+     *
+     * @param integer $id Customer Group ID
+     * @param array $methods Shipping Methods
+     */
+    private function saveShippingMethods($id, $methods) {
+        $methods= json_encode($methods, JSON_FORCE_OBJECT);
+        try{
+            $groupMethodModel = Mage::getModel('customergroupoptions/customerGroupOptions')->load($id, 'customer_group_id');
+            $groupMethodModel->setCustomerGroupId($id)
+                             ->setShippingMethods($methods)
                              ->save();
             return;
         }

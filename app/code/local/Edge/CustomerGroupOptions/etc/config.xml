@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Edge_CustomerGroupOptions>
-            <version>0.1.0</version>
+            <version>1.0.0</version>
         </Edge_CustomerGroupOptions>
     </modules>
     <global>
@@ -36,6 +36,11 @@
                     </customergroupoptions>
                 </entities>
             </customergroupoptions_resource>
+            <shipping>
+                <rewrite>
+                    <shipping>Edge_CustomerGroupOptions_Model_Shipping</shipping>
+                </rewrite>
+            </shipping>
         </models>
         <resources>
             <customergroupoptions_setup>

@@ -8,8 +8,33 @@ class Edge_CustomerGroupOptions_Model_CustomerGroupOptions extends Mage_Core_Mod
         $this->_init('customergroupoptions/customerGroupOptions');
     }
 
-    public function getCustomerGroupPaymentMethods($groupId) {
-        $model = $this->load($groupId, 'customer_group_id');
-        return json_decode($model->getPaymentMethods(), true);
+    /**
+     * Get allowed payment methods for custom group
+     *
+     * @param type $groupId Custom Group ID
+     * @return array
+     */
+    public function getPaymentMethodsForGroup($groupId) {
+        return json_decode($this->_getCustomerGroupOptions($groupId)->getPaymentMethods(), true);
+    }
+
+    /**
+     * Get allowed shipping methods for custom group
+     *
+     * @param type $groupId Customer Group ID
+     * @return array
+     */
+    public function getShippingMethodsForGroup($groupId) {
+        return json_decode($this->_getCustomerGroupOptions($groupId)->getShippingMethods(), true);
+    }
+
+    /**
+     * Load customer group options resource
+     *
+     * @param type $groupId Customer Group ID
+     * @return type resource
+     */
+    private function _getCustomerGroupOptions($groupId) {
+        return $this->load($groupId, 'customer_group_id');
     }
 }
