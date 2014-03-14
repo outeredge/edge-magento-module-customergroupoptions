@@ -27,8 +27,8 @@ class Edge_CustomerGroupOptions_Block_Onepage_Payment_Methods extends Mage_Check
     }
 
     protected function _setAvailableMethods() {
-        if(Mage::getSingleton('customer/session')->isLoggedIn() && $this->availableMethods == null){
-            $this->availableMethods = Mage::getModel('customergroupoptions/customerGroupOptions')->getCustomerGroupPaymentMethods(Mage::getSingleton('customer/session')->getCustomerGroupId());
+        if($this->availableMethods == null){
+            $this->availableMethods = Mage::getModel('customergroupoptions/customerGroupOptions')->getAvailablePaymentMethodsByGroupId(Mage::getSingleton('customer/session')->getCustomerGroupId());
         }
     }
 }

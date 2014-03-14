@@ -81,7 +81,7 @@ class Edge_CustomerGroupOptions_Block_Adminhtml_Customer_Group_Edit_Form extends
      */
 	private function _getSelectedPaymentMethods()
     {
-        return Mage::getSingleton('customergroupoptions/customerGroupOptions')->getPaymentMethodsForGroup(Mage::registry('current_group')->getId());
+        return Mage::getSingleton('customergroupoptions/customerGroupOptions')->getAvailablePaymentMethodsByGroupId(Mage::registry('current_group')->getId());
     }
 
     /**
@@ -91,6 +91,6 @@ class Edge_CustomerGroupOptions_Block_Adminhtml_Customer_Group_Edit_Form extends
      */
 	private function _getSelectedShippingMethods()
     {
-        return Mage::getSingleton('customergroupoptions/customerGroupOptions')->getShippingMethodsForGroup(Mage::registry('current_group')->getId());
+        return Mage::getSingleton('customergroupoptions/customerGroupOptions')->getAvailableShippingMethodsByGroupId(Mage::registry('current_group')->getId());
     }
 }

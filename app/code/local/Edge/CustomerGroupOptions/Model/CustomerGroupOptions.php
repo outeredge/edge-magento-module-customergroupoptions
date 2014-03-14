@@ -14,7 +14,7 @@ class Edge_CustomerGroupOptions_Model_CustomerGroupOptions extends Mage_Core_Mod
      * @param type $groupId Custom Group ID
      * @return array
      */
-    public function getPaymentMethodsForGroup($groupId) {
+    public function getAvailablePaymentMethodsByGroupId($groupId) {
         return json_decode($this->_getCustomerGroupOptions($groupId)->getPaymentMethods(), true);
     }
 
@@ -24,7 +24,7 @@ class Edge_CustomerGroupOptions_Model_CustomerGroupOptions extends Mage_Core_Mod
      * @param type $groupId Customer Group ID
      * @return array
      */
-    public function getShippingMethodsForGroup($groupId) {
+    public function getAvailableShippingMethodsByGroupId($groupId) {
         return json_decode($this->_getCustomerGroupOptions($groupId)->getShippingMethods(), true);
     }
 
